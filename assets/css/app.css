@@ -33,7 +33,15 @@
 }
 
 .menu-item {
-    @apply block px-4 py-2 text-sm text-white font-brand font-regular hover:text-emDark-light
+    @apply block px-4 py-2 text-sm text-white font-brand font-regular hover:text-emDark-light;
+}
+
+form input[type="text"] {
+    @apply bg-emDark-dark font-brand font-regular text-white text-xs border border-white focus:outline-none focus:border-emLavender focus:ring-0;
+}
+
+.textarea {
+    @apply w-full bg-emDark-dark font-brand font-regular text-white text-xs border border-white h-[300px] resize-none focus:outline-none focus:border-white focus:ring-0
 }
 
 .round-image-padding {
