@@ -10,6 +10,9 @@ defmodule ElixirGist.Accounts.User do
     field :current_password, :string, virtual: true, redact: true
     field :confirmed_at, :utc_datetime
 
+    has_many :gists, ElixirGist.Gists.Gist
+    has_many :comments, ElixirGist.Comments.Comment
+
     timestamps(type: :utc_datetime)
   end
 
