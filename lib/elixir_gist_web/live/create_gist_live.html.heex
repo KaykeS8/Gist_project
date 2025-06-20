@@ -3,9 +3,9 @@
     Instantly share Elixir code, notes, and snippets
   </h1>
 </div>
-<.form for={@form}>
+<.form for={@form} phx-submit="create" phx-change="validation">
   <div class="justify-center px-28  w-full space-y-4 mb-10">
-    <.input field={@form[:description]} placeholder="Gist description..." autocomplete="off" />
+    <.input field={@form[:description]} placeholder="Gist description..." autocomplete="off" phx-debounce="blur"/>
     <div>
       <div class="flex p-2 itens-center bg-emDark rounded-t-md border">
         <div class="w-[300px] mb-2">
@@ -13,6 +13,7 @@
             field={@form[:name]}
             placeholder="Filename including extesion..."
             autocomplete="off"
+            phx-debounce="blur"
           />
         </div>
       </div>
@@ -24,6 +25,7 @@
         placeholder="insert code..."
         spellcheck="false"
         autocomplete="off"
+        phx-debounce="blur"
       />
     </div>
     <div class="flex flex-row-reverse">
