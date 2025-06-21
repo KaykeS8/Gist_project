@@ -22,7 +22,13 @@ defmodule ElixirGistWeb.CreateGistLive do
     case Gists.create_gist(socket.assigns.current_user, params) do
       {:ok, _gist} ->
         changeset = Gists.change_gist(%Gist{})
-        {:noreply, assign(socket, :form, to_form(changeset))}
+
+        socket =
+          socket
+          |> put_flash(:info, "Gist created with sucessufly")
+          |> assign(:form, to_form(changeset))
+        {:noreply, socket}
+
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign(socket, :form, to_form(changeset))}
     end
